@@ -24,7 +24,7 @@ In order to test this solution a bid dataset is required, to do so we will use t
 The dataset of this paper can be found under the URL https://github.com/allenai/s2orc algongside the instructions to
 download it. 
 
-[ - ] Test to download the sample files provided.
-[ - ] Read and understand content format.
-[ - ] Convert them to CSV.
-[ - ] Display relationship graph recorded in CSV.
+- [ - ] Test to download the sample files provided.
+- [ - ] Read and understand content format.
+- [ - ] Convert them to CSV.
+- [ - ] Display relationship graph recorded in CSV.
