@@ -32,3 +32,11 @@ download it.
 After aalysing the sample dataset, we can see that most of the elements in the sample dataset are not interconnected
 therefore this database is not usefull for our purposes. The working method still remains relevant. We are going to
 attempt to generate a similar dataset but manually in order to ensure that all elements are interconnected.
+
+The manual dataset will be connected as it will be formed by following a stream of citations. This way we will ensure
+that the algorithm works and that all the nodes are interconnected.
+
+- [ - ] Select the starting paper for manual generation
+- [ - ] Generate database manually on two csv, one for meta and one for details
+- [ - ] Display graph
+- [ - ] Add paper titles to graph
