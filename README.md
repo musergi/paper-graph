@@ -24,7 +24,11 @@ In order to test this solution a bid dataset is required, to do so we will use t
 The dataset of this paper can be found under the URL https://github.com/allenai/s2orc algongside the instructions to
 download it. 
 
-- [ - ] Test to download the sample files provided.
-- [ - ] Read and understand content format.
-- [ - ] Convert them to CSV.
-- [ - ] Display relationship graph recorded in CSV.
+- [ X ] Test to download the sample files provided.
+- [ X ] Read and understand content format.
+- [ X ] Convert them to CSV.
+- [ X ] Display relationship graph recorded in CSV.
+
+After aalysing the sample dataset, we can see that most of the elements in the sample dataset are not interconnected
+therefore this database is not usefull for our purposes. The working method still remains relevant. We are going to
+attempt to generate a similar dataset but manually in order to ensure that all elements are interconnected.
