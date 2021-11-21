@@ -1,20 +1,26 @@
-import argparse
+import math
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--input_edges', required=True)
-parser.add_argument('--input_nodes', required=True)
-args = parser.parse_args()
+input_path = 'data/manual_dataset.ods'
+input_file = pd.ExcelFile(input_path)
+articles_df = pd.read_excel(input_file, 'articles', index_col='index')
+citations_df = pd.read_excel(input_file, 'references')
 
-df_nodes = pd.read_csv(args.input_nodes, index_col=0)
-df_edges = pd.read_csv(args.input_edges, index_col=0)
+def convert_article_tuple(t):
+    return (int(t.Index), {'title': t.title, 'citations': t.citations})
+
+def convert_citation_tuple(t):
+    return (t.origin, t.destination)
 
 graph = nx.DiGraph()
-for node in df_nodes.itertuples():
-    graph.add_node(node.id, title=node.title, year=node.year)
-for edge in df_edges.itertuples():
-    graph.add_edge(edge.origin, edge.destination)
-nx.draw(graph, labels=nx.get_node_attributes(graph, 'title'))
-plt.show()
+graph.add_nodes_from(map(convert_article_tuple, articles_df.itertuples()))
+graph.add_edges_from(map(convert_citation_tuple, citations_df.itertuples()))
+pos = nx.planar_layout(graph)
+sizes = list(nx.get_node_attributes(graph, 'citations').values())
+sizes = [s + 300 for s in sizes]
+plt.figure(figsize=(10, 10))
+nx.draw(graph, pos=pos, with_labels=True, node_size=sizes)
+plt.savefig('graph.pdf')
+
