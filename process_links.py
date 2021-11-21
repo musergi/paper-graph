@@ -13,7 +13,7 @@ def extract_inbound(d):
     return [(int(d['paper_id']), int(inbound)) for inbound in d['inbound_citations']]
 
 def extract_outbound(d):
-    return [(int(outbound), int(d['paper_id'])) for outbound in d['inbound_citations']]
+    return [(int(outbound), int(d['paper_id'])) for outbound in d['outbound_citations']]
 
 with open(args.input) as fp:
     dicts = list(map(json.loads, fp.readlines()))
