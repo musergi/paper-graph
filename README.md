@@ -36,7 +36,7 @@ attempt to generate a similar dataset but manually in order to ensure that all e
 The manual dataset will be connected as it will be formed by following a stream of citations. This way we will ensure
 that the algorithm works and that all the nodes are interconnected.
 
-- [ - ] Select the starting paper for manual generation
-- [ - ] Generate database manually on two csv, one for meta and one for details
-- [ - ] Display graph
-- [ - ] Add paper titles to graph
+- [ X ] Select the starting paper for manual generation
+- [ X ] Generate database manually on two csv, one for meta and one for details
+- [ X ] Display graph
+- [ X ] Add paper titles to graph

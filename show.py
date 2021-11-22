@@ -1,4 +1,5 @@
 import math
+import textwrap
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -20,7 +21,9 @@ graph.add_edges_from(map(convert_citation_tuple, citations_df.itertuples()))
 pos = nx.planar_layout(graph)
 sizes = list(nx.get_node_attributes(graph, 'citations').values())
 sizes = [s + 300 for s in sizes]
-plt.figure(figsize=(10, 10))
-nx.draw(graph, pos=pos, with_labels=True, node_size=sizes)
+titles = nx.get_node_attributes(graph, 'title')
+titles = {k: f'{k}\n' + textwrap.shorten(t, width=50) for k, t in titles.items()}
+plt.figure(figsize=(30, 30))
+nx.draw(graph, pos=pos, labels=titles, node_size=sizes, edge_color='#00000060', node_color="#0000FF60")
 plt.savefig('graph.pdf')
 
